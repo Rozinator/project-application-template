@@ -29,7 +29,7 @@ In addition, the feature automatically generates a horizontal bar chart that vis
 - Generates a bar chart showing keyword frequency per issue.
 
 #### How to Run
-The below command to be used to run this feature
+The following command should be used to run this feature.
 '''
 python run.py --feature 1 --keyword <search_word>
 '''
