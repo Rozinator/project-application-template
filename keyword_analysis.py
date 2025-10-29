@@ -81,6 +81,12 @@ class KeywordAnalysis:
 
         print(f"\nLoaded {len(issues)} issues from the dataset.")
         print(f"\nSearching for keyword: '{self.KEYWORD}' (case-insensitive)")
+
+        if not results:
+            print("\nNo issues found that match the given keyword.")
+            print("No chart will be displayed.\n")
+            return  # Exit early, skip plotting and file writing
+
         print(f"Found {len(results)} issue(s) containing '{self.KEYWORD}':\n")
 
         for r in results:
@@ -101,16 +107,21 @@ class KeywordAnalysis:
         print(f"Results saved to '{os.path.abspath(out_path)}'")
         print(f"\nKeyword '{self.KEYWORD}' appeared {total_matches} times across {len(results)} issues.\n")
 
-        # Visualization
-        titles = [r["issue"].title[:60] + ("..." if len(r["issue"].title) > 60 else "") for r in results]
-        counts = [r["count"] for r in results]
-        plt.figure(figsize=(10, 6))
-        plt.barh(range(len(titles)), counts)
-        plt.yticks(range(len(titles)), titles)
-        plt.xlabel("Number of keyword matches")
-        plt.title(f"Occurrences of '{self.KEYWORD}' in matched issues")
-        plt.tight_layout()
-        plt.show()
+        # Visualization only if results exist
+        if results:
+            titles = [
+                r["issue"].title[:60] + ("..." if len(r["issue"].title) > 60 else "")
+                for r in results
+            ]
+            counts = [r["count"] for r in results]
+
+            plt.figure(figsize=(10, 6))
+            plt.barh(range(len(titles)), counts)
+            plt.yticks(range(len(titles)), titles)
+            plt.xlabel("Number of keyword matches")
+            plt.title(f"Occurrences of '{self.KEYWORD}' in matched issues")
+            plt.tight_layout()
+            plt.show()
 
 
 if __name__ == "__main__":
