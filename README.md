@@ -13,14 +13,46 @@ With the utility functions provided, you should focus on implementing creative a
 
 In addition to the utility functions, an example analysis has also been implemented in `example_analysis.py`. It illustrates how to use the provided utility functions and how to produce output.
 
-### Feature 1 – Keyword Analysis
+# Feature 1 – Keyword Analysis
 
-This feature searches through all GitHub issues and lists the titles of those that contain a specified keyword.  
-The search is case-insensitive and includes both the title and the body/text of each issue.
+This feature performs an in-depth keyword search across all GitHub issues from the dataset.  
+It parses both the issue titles and descriptions to identify occurrences of the specified keyword (case-insensitive).  
+The output displays the title of the issue, the exact sentences where the keyword appears, and a summary count of matches per issue.
 
-#### How to Run
-```bash
+In addition, the feature automatically generates a horizontal bar chart that visualizes how many times the keyword occurs across different issues.  
+
+# Key Highlights
+- Parses and analyzes the entire `poetry_issues_all.json` dataset.  
+- Case-insensitive keyword detection in both issue titles and descriptions.  
+- Displays relevant contextual sentences.  
+- Saves a complete report to `keyword_results.txt`.  
+- Generates a bar chart showing keyword frequency per issue.
+
+# Example Output
+'''
+text output displayed:
+Loaded 5573 issues from C:\Users\2megh\Downloads\poetry_issues_all.json.
+
+Searching for keyword: 'critical' (case-insensitive)
+Found 17 issue(s) containing 'critical':
+
+• Release archive contains vulnerable cryptography library
+   → The version of cryptography in the py3.5 directory is 3.2.1, which contains critical vulnerability CVE-2020-36242.
+   [Matches in this issue: 1]
+
+• Feature Request: track critical path, and provide per-dependency time cost in 'poetry update'
+   → It would be nice to see the critical path for update resolution, as well as the time it takes for each dependency to resolve.
+   [Matches in this issue: 2]
+
+Keyword 'critical' appeared 18 times across 17 issues.
+Results saved to 'C:\Users\2megh\Desktop\project-application-template\keyword_results.txt'
+'''
+
+# How to Run
+The below command to be used to run this feature
+'''
 python run.py --feature 1 --keyword <search_word>
+'''
 
 ## Setup
 
