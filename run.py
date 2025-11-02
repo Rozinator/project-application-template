@@ -11,7 +11,8 @@ import config
 from example_analysis import ExampleAnalysis
 
 from keyword_analysis import KeywordAnalysis
-from status_analysis import StatusAnalysis
+from label_analysis import LabelAnalysis
+from analysis_status import StatusAnalysis
 
 def parse_args():
     """
