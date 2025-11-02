@@ -85,12 +85,6 @@ python run.py --feature 2
 
 at the root folder of the project. 
 
-## VSCode run configuration
-
-To make the application easier to debug, runtime configurations are provided to run each of the analyses you are implementing. When you click on the run button in the left-hand side toolbar, you can select to run one of the three analyses or run the file you are currently viewing. That makes debugging a little easier. This run configuration is specified in the `.vscode/launch.json` if you want to modify it.
-
-The `.vscode/settings.json` also customizes the VSCode user interface sligthly to make navigation and debugging easier. But that is a matter of preference and can be turned off by removing the appropriate settings.
-
 ## Feature 3 – Label Analysis
 
 This feature analyzes GitHub issue labels and their resolution times from the Poetry project dataset.  
@@ -112,3 +106,9 @@ Run this analysis feature using this command:
 ```
 python run.py --feature 3
 ```
+
+## VSCode run configuration
+
+To make the application easier to debug, runtime configurations are provided to run each of the analyses you are implementing. When you click on the run button in the left-hand side toolbar, you can select to run one of the three analyses or run the file you are currently viewing. That makes debugging a little easier. This run configuration is specified in the `.vscode/launch.json` if you want to modify it.
+
+The `.vscode/settings.json` also customizes the VSCode user interface sligthly to make navigation and debugging easier. But that is a matter of preference and can be turned off by removing the appropriate settings.
