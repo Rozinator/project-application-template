@@ -1,0 +1,207 @@
+poetry install in docker container fails with `RuntimeError: no .dist-info at .......`
+   → 67│                 messages = [f"failed to build image {', '.join(exceptions.keys())} because:"]
+       68│                 for value in exceptions.values()
+   [Matches in this issue: 1]
+
+Poetry fails to install lxml on Windows.
+   → Cache\virtualenvs\ptest-_F8xBSuX-py3.11\Lib\site-packages\lxml\includes\libxslt\keys.h over existing file
+Installing C:\Users\$USERNAME$\AppData\Local\Packages
+   [Matches in this issue: 1]
+
+Poetry fails due to missing SSH keys for downloading optional dependencies
+   → Poetry fails due to missing SSH keys for downloading optional dependencies.
+   [Matches in this issue: 1]
+
+Not able to install package and leading to this error.
+   → -Wdeprecated-declarations]
+     __pyx_type_7preshed_4maps___pyx_scope_struct_1_keys.tp_print = 0;
+                                                         ^~~
+   [Matches in this issue: 3]
+
+Poetry 1.8 builds incorrect URL when installing packages from a custom source, leading to a 403 Forbidden error
+   → = get_highest_priority_hash_type(
+       375│                 set(link.hashes.keys()), link.filename
+
+   7  /usr/lib/python3.10/contextlib.py:135 in __enter
+   [Matches in this issue: 1]
+
+Installing package in editable mode using 'poetry install' causes Import Error
+   → 0.6.1): Skipped for the following reason: Already installed
+  - Installing eth-keys (0.4.0): Skipped for the following reason: Already installed
+  - Installin
+   [Matches in this issue: 1]
+
+`poetry lock --no-update` fails on FIPS-enabled system when the only known hash for a dependency is `md5`
+   → e = get_highest_priority_hash_type(
+      371│                 set(link.hashes.keys()), link.filename
+      372│             )
+    → 373│             known_h
+   [Matches in this issue: 1]
+
+Support `source` overrides when merging dependencies between groups
+   → by merging the keys) does not allow for overrides of the `source` value and thus breaks `path` (and presumably `git` / `url`) overrides.
+   [Matches in this issue: 1]
+
+Poetry Dependency Resolution Issue while Dependency extras with source
+   → "Package private-package-a (*) not found." The issue here is that package source keys are not inherited by their dependencies when extras are involved, which is unexpected behavior.
+   [Matches in this issue: 1]
+
+License field in pyproject.toml should accept table value (e.g., `{ file = "LICENSE.txt"}`)
+   → [License](https://packaging.python.org/en/latest/specifications/core-metadata/#core-metadata-license) > > The table may have one of two keys.
+   → These keys are mutually exclusive, so a tool MUST raise an error if the metadata specifies both keys.
+   [Matches in this issue: 3]
+
+FAQ `Is tox supported?` Outdated with `tox` v4
+   → [Isolated builds are on by default](https://tox.wiki/en/latest/upgrading.html#isolated-environment-on-by-default) now and several `tox.ini` keys [have been removed](https://tox.wiki/en/latest/upgrading.html#removed-tox-ini-keys).
+   [Matches in this issue: 2]
+
+Poetry insists on optional property
+   → > The only keys required to be statically defined are:
+   → > > - name > > The keys which are required but may be specified either statically or listed as dynamic are:
+   → > > - version > > All other keys are considered optional and may be specified statically, listed as dynamic, or left unspecified.
+   [Matches in this issue: 3]
+
+unsupported operand type(s) for /: 'str' and 'str'
+   → 42│     )
+       43│
+       44│     properties = {*schema["properties"].keys(), *core_schema["properties"].keys()}
+       45│     additional_properties
+   [Matches in this issue: 6]
+
+Unclear error report: KeyError 'name'
+   → idate
+      366│             dependencies.update(group.get("dependencies", {}).keys())
+      367│ 
+      368│         dependencies = {canonicalize_name(d) fo
+   [Matches in this issue: 1]
+
+`tool.poetry` section should be optional
+   → ## Feature Request The `tool.poetry` section and specifically the keys `name`, `version`, `descriptions` and `authors` of a `pyproject.toml` are mandatory for poetry, but they are just useless for projects that use poetry to run only command-line pyt...
+   [Matches in this issue: 1]
+
+Poetry prints my_project does not contain any element after running poetry install
+   → Ubuntu 22.04 - **pyproject.toml** [sample](https://gist.github.com/keystroke3/35fcb840ecf47b00d6975731e6443f3b) - [x] I am on the [latest](https://github.com/python-poetry/poetry/releases/latest) stable Poetry version, installed using a recommended m...
+   [Matches in this issue: 1]
+
+`poetry self` commands seem to be adding newlines to poetry's own pyproject.toml
+   → **(Not Expected)** My best guess is that the problem seems to be centered around how [`generate_system_pyproject` ](https://github.com/python-poetry/poetry/blob/20352b616a0bdabf6ee9f361afe35de24e40fb2b/src/poetry/console/commands/self/self_command.py...
+   [Matches in this issue: 1]
+
+Repository source precedence order issue
+   → does not seem to have any impact * all possible combinations of the `default` and `secondary` keys for `[[tool.poetry.source]]`:
+   [Matches in this issue: 1]
+
+Multiple private packages from GitHub using GitHub Deploy Keys
+   → Multiple private packages from GitHub using GitHub Deploy Keys.
+   → I'm using https://github.com/webfactory/ssh-agent GitHub action to add 2 Deploy Keys.
+   → I'm also following these suggestions regarding multiple deploy keys:
+   → https://github.com/webfactory/ssh-agent#support-for-github-deploy-keys Keys are successfully added and work when just running a simple `git clone git@github.com:my-org/repo-1.git` action.
+   [Matches in this issue: 5]
+
+https://install.python-poetry.org/ certificate has expired
+   → erification by default, using a "bundle"
+ of Certificate Authority (CA) public keys (CA certs). If the default
+ bundle file isn't adequate, you can specify an
+   [Matches in this issue: 1]
+
+Poetry doesn't recognize setuptools based project if it has no setup.py (only setup.cfg)
+   → Specifically this happens because the check only checks if a `setup.py` exists or if the `pyproject.toml` has `tool.poetry` keys.
+   [Matches in this issue: 1]
+
+Getting wheeles error 
+   → messages = ["failed to build image {} because:".format(", ".join(exceptions.keys()))]
+68│                 for value in exceptions.values():
+69│
+   [Matches in this issue: 1]
+
+Backspace and other cursor movement keys are broken in `poetry init`
+   → Backspace and other cursor movement keys are broken in `poetry init`.
+   [Matches in this issue: 1]
+
+[FEATURE] Secret Store
+   → - [x] Fast access to important development variables like tokens, keys, certificates, fingerprints etc.
+   [Matches in this issue: 1]
+
+Poetry does not install sshpubkeys package required by moto package.
+   → Poetry does not install sshpubkeys package required by moto package..
+   [Matches in this issue: 3]
+
+Should pyproject.toml configs always be required to use poetry?
+   → Wouldn't it be better to only require the config for situations that actually need the config keys?
+   [Matches in this issue: 1]
+
+Provide signature for poetry installation script
+   → This is just an example anyways - of course you could also upload the key to a keyserver and make the user install it in his/her truststore.
+   [Matches in this issue: 2]
+
+Add doc warning about shell history logging for commands that accept credentials
+   → Thanks again 🙌 ❤️ --> I think to make sure private keys/password are secured, we should remove `poetry config` commands that have any sensitive information from the terminal history (or replace sensitive information with stars?):
+   [Matches in this issue: 1]
+
+Cannot download packages from private PyPi repository using HTTP basic auth with Poetry 1.1.0 + old v1.0.x PypiCloud w/ default settings 
+   → I am trying to be as brief as possible with my output as possible without dumping any keys or stuff like that.
+   [Matches in this issue: 1]
+
+GPG Package Signing CLI Feature
+   → It could be the only module tool able to verify keys.
+   [Matches in this issue: 1]
+
+Windows 10 (WSL - Windows Subsystem Linux) (Ubuntu 19.10) poetry install fails
+   → ent
+  - Skipping attrs (19.3.0) Already installed
+  - Skipping azure-keyvault-keys (4.0.1) Already installed
+  - Skipping azure-keyvault-secrets (4.0.1) Alre
+   [Matches in this issue: 2]
+
+SSH dependency does not work
+   → This specification is valid for `requirements.txt` and is needed to resolve private keys before installation.
+   [Matches in this issue: 1]
+
+poetry env use X.Y fails on Windows
+   → They do, however, provide registry keys with installation locations, which Poetry can use to resolve `X.Y` to the Python interpreter path.
+   [Matches in this issue: 1]
+
+Keyring errors during non-publishing operations
+   → I gather that keyring integration was added as a convenience feature so that you can publish packages using keys stored in your keyring.
+   → In the future, I think it would be beneficial to poetry's adoption and to its users, if users are not prompted for keyring unless keys should actually be needed (for a 'publish' operation).
+   [Matches in this issue: 2]
+
+Various keys are set to "None" in built "setup.py" file.
+   → Various keys are set to "None" in built "setup.py" file..
+   → Thanks again 🙌 ❤️ --> I have just noticed that various keys in the generated `setup.py` upon invoking `poetry build` are set to `None`:
+   [Matches in this issue: 2]
+
+JSONDecodeError on 0.12.17
+   → talled Size:  22.46 MiB
+
+:: Proceed with installation? [Y/n] 
+(1/1) checking keys in keyring
+   [Matches in this issue: 1]
+
+Public Key not found checking git signature
+   → Thanks again 🙌 ❤️ --> I tried to verify the signature of the git tag I tried `pgp.mit.edu` and the sks pool keyserver [This](https://api.github.com/users/sdispater/gpg_keys) appears to be the key GitHub has, but unfortunately they don't run a keyserv...
+   [Matches in this issue: 8]
+
+Packages with semvar+devnum schemas don't resolve.
+   → `poetry add eth-keys` results in:
+   → ...despite `eth-keys` obviously being a valid package.
+   [Matches in this issue: 3]
+
+Missing `license` key explodes rather than logging a useful message
+   → I would expect it to fail in the same way that it does for other missing keys:
+   [Matches in this issue: 1]
+
+Make poetry-agent for storing repository passwords in memory
+   → It asks passwords for ssh keys, stores them in memory and fills the passwords every time `ssh` asks for them.
+   [Matches in this issue: 1]
+
+Cannot install ccxt
+   → on eth-keyfile (>=0.5.0,<0.6.0)
+   1: fact: eth-account (0.2.3) depends on eth-keys (>=0.2.0b3,<0.3.0)
+   1: fact: eth-account (0.2.3) depends on eth-utils (>
+   [Matches in this issue: 7]
+
+Add correct PyPI classifier for supported license
+   → Do the values in the *CLASSIFIERS_SUPPORTED* list match the data keys recovered in the **poetry/spdx/data/licenses.json** file?
+   [Matches in this issue: 1]
+
