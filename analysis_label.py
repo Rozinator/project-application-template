@@ -1,4 +1,3 @@
-
 from typing import List
 import matplotlib.pyplot as plt
 import numpy as np
@@ -61,4 +60,4 @@ class LabelAnalysis:
 
 if __name__ == '__main__':
     # Invoke run method when running this module directly
-    ExampleAnalysis().run()
+    LabelAnalysis().run()
