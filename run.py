@@ -9,8 +9,6 @@ import argparse
 
 import config
 from example_analysis import ExampleAnalysis
-from label_analysis import LabelResolutionAnalysis
-
 
 
 def parse_args():
@@ -37,6 +35,9 @@ def parse_args():
     ap.add_argument('--label', '-l', type=str, required=False,
                     help='Optional parameter for analyses focusing on a specific label')
     
+    ap.add_argument('--keyword', '-k', type=str, required=False,
+                    help='Keyword to search for within issues (case-insensitive)')
+    
     return ap.parse_args()
 
 
@@ -50,7 +51,7 @@ config.overwrite_from_args(args)
 if args.feature == 0:
     ExampleAnalysis().run()
 elif args.feature == 1:
-    pass # TODO call first analysis
+    KeywordAnalysis().run()
 elif args.feature == 2:
     LabelResolutionAnalysis().run()
 elif args.feature == 3:
