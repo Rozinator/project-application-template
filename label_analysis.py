@@ -4,7 +4,7 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
-class LabelResolutionAnalysis:
+class LabelAnalysis:
     def __init__(self, data_path='data/poetry_issues_all.json'):
         self.data_path = data_path
         self.issues = []
