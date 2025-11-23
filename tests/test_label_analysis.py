@@ -2,6 +2,8 @@ import unittest
 from unittest.mock import patch, MagicMock
 import sys
 import os
+import tempfile
+import json
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import matplotlib
@@ -12,10 +14,7 @@ from label_analysis import LabelAnalysis
 class TestLabelAnalysis(unittest.TestCase):
     @patch('label_analysis.plt.show')
     @patch('label_analysis.plt.subplots')
-    '''test_label_frequency_and_avg_resolution
-    Verify label frequency calculation and that average-resolution times are produced in the expected shape.
-    Setup:
-    Creates three issues: one open issue with labels ['bug','enhancement'] and two closed issues containing bug (so total bug count should be 3).'''
+
     def test_label_frequency_and_avg_resolution(self, mock_subplots, mock_show):
         """Label frequency and average resolution time plotting inputs."""
         ax0 = MagicMock()
@@ -45,9 +44,7 @@ class TestLabelAnalysis(unittest.TestCase):
 
     @patch('label_analysis.plt.show')
     @patch('label_analysis.plt.subplots')
-    
-    '''test_ignores_non_closed_and_missing_dates
-    Ensure only closed issues with valid created/updated dates are used to compute resolution times.'''
+
     def test_ignores_non_closed_and_missing_dates(self, mock_subplots, mock_show):
         """Only closed issues with valid dates are used for resolution times."""
         ax0 = MagicMock()
@@ -72,10 +69,6 @@ class TestLabelAnalysis(unittest.TestCase):
     @patch('label_analysis.plt.show')
     @patch('label_analysis.plt.subplots')
 
-    '''test_dict_labels_as_open_issues
-    Purpose: Ensure that label entries represented as dicts (e.g., {'name':'bug'}) do not crash the analysis when they appear on open issues, and that the label counting still includes the label name.
-    Setup:
-    Uses an open issue with a dict-form label and a closed issue with a string label.'''
     def test_dict_labels_as_open_issues(self, mock_subplots, mock_show):
         """Dict-format labels on open issues are counted and do not cause errors."""
         ax0 = MagicMock()
@@ -94,6 +87,46 @@ class TestLabelAnalysis(unittest.TestCase):
         ax0.bar.assert_called_once()
         labels_arg = list(ax0.bar.call_args[0][0])
         self.assertIn('bug', labels_arg)
+
+    def test_load_data_from_file(self):
+        """Test that load_data reads from actual file."""
+        # Create a temporary test file
+        test_data = [{'labels': ['test'], 'state': 'open'}]
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+            json.dump(test_data, f)
+            temp_path = f.name
+        
+        try:
+            la = LabelAnalysis(data_path=temp_path)
+            la.load_data()
+            self.assertEqual(len(la.issues), 1)
+            self.assertEqual(la.issues[0]['labels'], ['test'])
+        finally:
+            os.unlink(temp_path)
+
+    @patch('label_analysis.plt.show')
+    @patch('label_analysis.plt.subplots')
+    def test_issues_without_labels_field(self, mock_subplots, mock_show):
+        """Issues without labels field should not cause errors."""
+        ax0 = MagicMock()
+        ax1 = MagicMock()
+        mock_subplots.return_value = (MagicMock(), [ax0, ax1])
+
+        issues = [
+            {'state': 'open', 'created_date': '2020-01-01T00:00:00Z', 'updated_date': '2020-01-02T00:00:00Z'},
+            {'labels': ['bug'], 'state': 'closed', 'created_date': '2020-01-01T00:00:00Z', 'updated_date': '2020-01-16T00:00:00Z'},
+            {'state': 'closed', 'created_date': '2020-01-01T00:00:00Z', 'updated_date': '2020-01-10T00:00:00Z'},
+        ]
+
+        la = LabelAnalysis()
+        la.load_data = lambda: setattr(la, 'issues', issues)
+        la.run()
+
+        ax0.bar.assert_called_once()
+        labels_arg = list(ax0.bar.call_args[0][0])
+        counts_arg = list(ax0.bar.call_args[0][1])
+        self.assertIn('bug', labels_arg)
+        self.assertEqual(counts_arg[labels_arg.index('bug')], 1)
 
 
 if __name__ == '__main__':
