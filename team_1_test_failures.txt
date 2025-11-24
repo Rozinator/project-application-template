@@ -1,0 +1,72 @@
+Command: python3 -m coverage run -m unittest discover tests
+
+Output:
+/Users/longlee/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/3z/fl0f61gs3bl55q1p8tqlm8w00000gn/T/matplotlib-cg7i7ptx because there was an issue with the default path (/Users/longlee/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+............
+----------------------------------------------------------------------
+Ran 12 tests in 1.044s
+
+OK
+Error: The '--keyword' parameter is required for this analysis.
+Usage: python run.py --feature 1 --keyword <word or phrase>
+
+Loaded 2 issues from the dataset.
+
+Searching for keyword: 'keyword' (case-insensitive)
+
+No issues found that match the given keyword.
+No chart will be displayed.
+
+
+Loaded 1 issues from the dataset.
+
+Searching for keyword: 'keyword' (case-insensitive)
+Found 1 issue(s) containing 'keyword':
+
+• Keyword issue
+   → Keyword issue. Prefix text keyword keyword keyword keyword keyword suffix
+   [Matches in this issue: 6]
+
+Results saved to '/Users/longlee/Desktop/project-application-template/keyword_results.txt'
+
+Keyword 'keyword' appeared 6 times across 1 issues.
+
+
+Loaded 2 issues from the dataset.
+
+Searching for keyword: 'error' (case-insensitive)
+Found 2 issue(s) containing 'error':
+
+• Database error
+   → Database error.
+   → Error connecting to DB.
+   → Another error occurred.
+   [Matches in this issue: 3]
+
+• Minor error in UI
+   → Minor error in UI.
+   → An error is shown when clicking the button.
+   [Matches in this issue: 2]
+
+Results saved to '/Users/longlee/Desktop/project-application-template/keyword_results.txt'
+
+Keyword 'error' appeared 5 times across 2 issues.
+
+
+
+
+Issue status counts:
+  open: 2
+  closed: 1
+
+Open issue status labels:
+  in-review: 1
+  done: 1
+  unassigned: 1
+
+
+
+
+Saved figure to: /private/var/folders/3z/fl0f61gs3bl55q1p8tqlm8w00000gn/T/tmpo75wo62t/status.png
