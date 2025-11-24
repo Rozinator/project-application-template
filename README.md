@@ -107,6 +107,38 @@ Run this analysis feature using this command:
 python run.py --feature 3
 ```
 
+## Testing
+
+The project includes unit tests to ensure code quality and correctness. Tests are located in the `tests/` directory.
+
+### Running Tests
+
+To run all tests:
+
+```
+python3 -m pytest tests/ -v
+```
+
+### Checking Test Coverage
+
+To see how much of your code is covered by tests:
+
+```
+python3 -m pytest tests/ --cov=. --cov-report=term
+```
+
+To see which specific lines are missing coverage:
+
+```
+python3 -m pytest tests/ --cov=. --cov-report=term-missing
+```
+
+To save coverage report to a file:
+
+```
+python3 -m pytest tests/ --cov=. --cov-report=term > test_coverage.txt
+```
+
 ## VSCode run configuration
 
 To make the application easier to debug, runtime configurations are provided to run each of the analyses you are implementing. When you click on the run button in the left-hand side toolbar, you can select to run one of the three analyses or run the file you are currently viewing. That makes debugging a little easier. This run configuration is specified in the `.vscode/launch.json` if you want to modify it.
