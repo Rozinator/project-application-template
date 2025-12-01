@@ -74,6 +74,49 @@ class StatusAnalysisTests(unittest.TestCase):
                 "Expected plot to be written even when no status items are present",
             )
 
+    def test_run_empty_dataset_raises_currently(self):
+        # Empty data set triggers a ValueError in the pie chart code today.
+        with patch("status_analysis.DataLoader") as loader_mock:
+            loader_mock.return_value.get_issues.return_value = []
+            analysis = status_analysis.StatusAnalysis()
+            with self.assertRaises(ValueError):
+                analysis.run()
+
+    def test_plot_analysis_missing_dir_raises_currently(self):
+        # Saving to a non-existent directory raises FileNotFoundError today.
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            missing_dir_path = Path(tmp_dir) / "missing" / "status.png"
+            analysis = status_analysis.StatusAnalysis()
+            with patch("status_analysis.OUTPUT_PNG", missing_dir_path):
+                with self.assertRaises(FileNotFoundError):
+                    analysis._plot_analysis(
+                        state_sizes=[1, 1],
+                        state_labels=["open", "closed"],
+                        status_items=[("status/in-review", 1)],
+                        status_keys=["status/in-review"],
+                        status_vals=[1],
+                    )
+
+    @patch("status_analysis.plt.show")
+    def test_run_dict_status_labels_marked_unassigned_currently(self, mock_show):
+        # Dict labels with 'name' field are ignored today, leading to 'unassigned'.
+        issues = [
+            SimpleNamespace(state="open", labels=[{"name": "status/in-review"}]),
+        ]
+        with tempfile.TemporaryDirectory() as tmp_dir, patch(
+            "status_analysis.OUTPUT_PNG", Path(tmp_dir) / "status.png"
+        ), patch(
+            "status_analysis.DataLoader"
+        ) as loader_mock, patch(
+            "status_analysis.config.get_parameter",
+            side_effect=lambda name, default=None: "tester" if name == "user" else None,
+        ):
+            loader_mock.return_value.get_issues.return_value = issues
+            analysis = status_analysis.StatusAnalysis()
+            analysis.run()
+            self.assertIn("unassigned", analysis.open_status_labels)
+            self.assertNotIn("in-review", analysis.open_status_labels)
+
 
 if __name__ == "__main__":
     unittest.main()
